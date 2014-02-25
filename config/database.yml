@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: cmw_dev
+
+test:
+  <<: *default
+  database: cmw_test
+
+#production: <%= ENV["RAILS_DATABASE_URL"] %>
