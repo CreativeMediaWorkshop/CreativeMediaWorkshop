@@ -1,0 +1,2 @@
+module MoSiteHelper
+end

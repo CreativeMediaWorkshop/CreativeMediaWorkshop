@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+  get "mo_site/index"
+
+  get "mo_site/special"
+
+  get "mo_site/category"
+
+  get "main_site/index"
+
+  get "main_site/about"
+
+  get "main_site/dept"
+
+  get "main_site/overview"
+
+  get "main_site/contact"
+
+  resources :main_articles
+
+  resources :mo_items
+
+  devise_for :cmw_accounts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

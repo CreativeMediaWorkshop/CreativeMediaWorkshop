@@ -71,3 +71,6 @@ gem "binding_of_caller", group: [:development, :test]
 
 # Use puma as the app server
 gem 'puma'
+
+# Deploy in Heroku
+gem 'rails_12factor', group: :production
