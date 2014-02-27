@@ -13,4 +13,8 @@ class MainSiteController < ApplicationController
 
   def contact
   end
+
+  def contact_post
+    
+  end
 end

@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
-  get "mo_site/index"
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  root 'main_site#index'
 
-  get "mo_site/special"
+  scope path: '/mo', controller: :mo_site do
+    get 'index' => :index
+    get 'special' => :special
+    get 'category' => :category
+  end
 
-  get "mo_site/category"
+  get 'about' => 'main_site#about'
 
-  get "main_site/index"
+  get 'dept' => 'main_site#dept'
 
-  get "main_site/about"
+  get 'overview' => 'main_site#overview'
 
-  get "main_site/dept"
-
-  get "main_site/overview"
-
-  get "main_site/contact"
+  get 'contact' => 'main_site#contact'
+  post 'contact' => 'main_site#contact_post'
 
   resources :main_articles
-
   resources :mo_items
 
   devise_for :cmw_accounts

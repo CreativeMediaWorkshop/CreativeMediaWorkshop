@@ -61,7 +61,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'activerecord-session_store'
 gem 'rails-settings-cached'
-
+gem 'rails_admin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
