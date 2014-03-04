@@ -1,4 +1,7 @@
 class MoSiteController < ApplicationController
+  before_action :set_mo_item, only: [:item]
+  before_action :set_mo_items, only: [:index, :sc_index]
+
   def index
   end
 
@@ -6,5 +9,22 @@ class MoSiteController < ApplicationController
   end
 
   def category
+  end
+
+  def sc_index
+  end
+
+  def item
+
+  end
+
+  private
+  	def set_mo_item
+      @mo_item = MoItem.find(params[:id])
+    end
+
+    def set_mo_items
+      @mo_items = MoItem.all
+    end
   end
 end
