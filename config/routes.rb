@@ -1,24 +1,23 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   root 'main_site#index'
 
   scope path: '/mo', controller: :mo_site do
-    get 'index' => :index
-    get 'special' => :special
-    get 'category' => :category
+    get '' => :index, as: 'mo_index'
+    get 'special/:id' => :special, as: 'mo_special'
+    get 'category/:id' => :category, as: 'mo_category'
+    resources :mo_items
   end
 
-  get 'about' => 'main_site#about'
-
-  get 'dept' => 'main_site#dept'
-
-  get 'overview' => 'main_site#overview'
-
-  get 'contact' => 'main_site#contact'
-  post 'contact' => 'main_site#contact_post'
+  scope controller: :main_site, as: 'main_site' do
+    get 'about' => :about
+    get 'dept/:id' => :dept, as: 'dept'
+    get 'contact' => :contact
+    post 'contact' => :contact
+  end
 
   resources :main_articles
-  resources :mo_items
 
   devise_for :cmw_accounts
   # The priority is based upon order of creation: first created -> highest priority.

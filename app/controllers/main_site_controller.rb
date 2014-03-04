@@ -8,13 +8,6 @@ class MainSiteController < ApplicationController
   def dept
   end
 
-  def overview
-  end
-
   def contact
-  end
-
-  def contact_post
-    
   end
 end
