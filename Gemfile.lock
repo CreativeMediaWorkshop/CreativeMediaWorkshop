@@ -105,6 +105,7 @@ GEM
       png_quantizator
     png_quantizator (0.1.0)
     polyglot (0.3.4)
+    predictionio (0.6.0)
     puma (2.7.1)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
@@ -224,6 +225,7 @@ DEPENDENCIES
   nprogress-rails
   pg
   piet
+  predictionio
   puma
   rails (= 4.1.0.beta1)
   rails-settings-cached

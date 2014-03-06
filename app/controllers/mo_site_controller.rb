@@ -1,5 +1,5 @@
 class MoSiteController < ApplicationController
-  before_action :set_mo_item, only: [:item]
+  before_action :set_mo_item, only: [:special, :category, :item]
   before_action :set_mo_items, only: [:index, :sc_index]
 
   def index

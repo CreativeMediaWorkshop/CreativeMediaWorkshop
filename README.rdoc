@@ -3,9 +3,13 @@
 === Current Tasks
 
 * add heroku models like 
+
 https://addons.heroku.com/zeropush
+
 https://addons.heroku.com/keen
+
 https://addons.heroku.com/sendgrid
+
 https://addons.heroku.com/spreedlycore
 
 * add ActiveMerchant & activemerchant_patch_for_china
