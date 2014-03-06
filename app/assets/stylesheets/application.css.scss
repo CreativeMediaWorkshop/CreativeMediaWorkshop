@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'variables';
+@import 'bootstrap';
+
+body {
+  -webkit-font-smoothing: antialiased !important;
+  font-family: roboto,arial,sans-serif !important;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/roboto.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/roboto700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/rotobo300.woff) format('woff');
+}

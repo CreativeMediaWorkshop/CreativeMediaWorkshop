@@ -26,5 +26,4 @@ class MoSiteController < ApplicationController
     def set_mo_items
       @mo_items = MoItem.all
     end
-  end
 end
