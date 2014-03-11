@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225025130) do
+ActiveRecord::Schema.define(version: 20140310155624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140225025130) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "cmw_accounts", ["email"], name: "index_cmw_accounts_on_email", unique: true, using: :btree
@@ -49,12 +50,12 @@ ActiveRecord::Schema.define(version: 20140225025130) do
     t.string   "subtitle"
     t.float    "price"
     t.string   "file"
-    t.string   "author"
     t.text     "description"
     t.string   "type"
     t.integer  "click_times"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
 end

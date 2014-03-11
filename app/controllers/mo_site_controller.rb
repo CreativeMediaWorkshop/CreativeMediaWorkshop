@@ -1,4 +1,6 @@
 class MoSiteController < ApplicationController
+  layout 'mo'
+
   before_action :set_mo_item, only: [:special, :category, :item]
   before_action :set_mo_items, only: [:index, :sc_index]
 
@@ -26,5 +28,4 @@ class MoSiteController < ApplicationController
     def set_mo_items
       @mo_items = MoItem.all
     end
-  end
 end
