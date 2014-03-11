@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-9
+      .alert.alert-danger 账号注册部分代码尚未完成！敬请期待
+      .body
+        .title
+          .content
+            .header.acd
+              .h3.title 
+                div class = 'acd icon add user' 
+                |注册账户
+        .acd.article
+          = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+            = devise_error_messages!
+
+            = f.label '昵称'
+            <br />
+            |请注意：用户名设定后无法更改，并将作为昵称公开显示
+            <br />
+            = f.text_field :name, :autofocus => true
+            <br />
+            = f.label '邮箱'
+            <br />
+            = f.email_field :email
+            <br />
+            = f.label '密码'
+            <br />
+            = f.password_field :password
+            <br />
+            = f.label '确认密码'
+            <br />
+            = f.password_field :password_confirmation
+            <br />
+            = f.submit '注册', :class => 'acd big btn green'
+    .col-md-3
+      .acd.page
+        .body
+          = render "devise/shared/links"

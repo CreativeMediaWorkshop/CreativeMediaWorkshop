@@ -1,3 +1,13 @@
 // Place all the styles related to the Mo_Site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$brand-primary: #fb4e3e;
+
+@import 'bootstrap';
+
+#top_navbar{
+	.navbar-header button span.icon-bar{
+		background-color: $brand-primary; 
+	}
+}

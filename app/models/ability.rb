@@ -2,6 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    if user
+      if user.role == 'admin'
+        can :access, :rails_admin
+        can :dashboard
+        can :manage, :all
+      elsif user.role == 'user'
+      elsif user.role == 'verified'
+      #elsif user.role == 'banned'
+      end
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

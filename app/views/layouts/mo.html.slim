@@ -10,16 +10,15 @@ html
     javascript:
       $("#top_navbar .navbar-nav li##{action_name}").addClass("active");
   body#mo_body
-    nav.navbar.navbar-default#top_navbar role="navigation"
+    nav.navbar.navbar-primary#top_navbar role="navigation"
       .container-fluid
         .navbar-header
-          button.navbar-toggle type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-            span.sr-only Toggle navigation
+          button.navbar-toggle type="button" data-toggle="collapse" data-target="#top_navbar-collapse-1"
             span.icon-bar
             span.icon-bar
             span.icon-bar
           a.navbar-brand href="#" 摸 Mo
-        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+        .collapse.navbar-collapse#top_navbar-collapse-1
           ul.nav.navbar-nav
             li#index
               = link_to '首页', mo_index_path
@@ -40,8 +39,15 @@ html
                 li
                   a href="#" Separated link
           ul.nav.navbar-nav.navbar-right
-            li
-              a href="#" Link
+            - if cmw_account_signed_in?
+              p.navbar-text
+                |欢迎，
+                = current_cmw_account.name
+              li
+                = link_to '登出', destroy_cmw_account_session_path, :method => :delete
+            - else
+              li
+                = link_to '登录', new_cmw_account_session_path
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
                 |Dropdown
@@ -56,15 +62,14 @@ html
                 li.divider
                 li
                   a href="#" Separated link
-          form.navbar-form.navbar-right role="search"
-            div.form-group
-                input.form-control type="text" placeholder="搜索..."
+          / form.navbar-form.navbar-right role="search"
+          /   div.form-group
+          /       input.form-control type="text" placeholder="搜索..."
     .container
       - if flash.notice
         .alert.alert-info = flash.notice
       - if flash.alert
         .alert.alert-warning = flash.alert
-      .row
-        == yield
+      == yield
       footer
     
