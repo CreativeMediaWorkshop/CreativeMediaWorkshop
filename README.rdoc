@@ -18,6 +18,8 @@ https://addons.heroku.com/spreedlycore
 
 * change devise.rb's secret key
 
+* change Qiniu's keys
+
 * add routes for subdomain (constraints: {subdomain: 'admin'})
 
 === TO BE WRITTEN DOWN

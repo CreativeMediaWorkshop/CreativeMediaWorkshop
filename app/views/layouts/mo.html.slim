@@ -1,14 +1,16 @@
 doctype html
 html
   head
-    title CreativeMediaWorkshop
+    title 摸Mo
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "mo_site", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "mo_site", "data-turbolinks-track" => true
     = csrf_meta_tags
+    javascript:
+      $("#top_navbar .navbar-nav li##{action_name}").addClass("active");
   body#mo_body
-    nav.navbar.navbar-default role="navigation"
+    nav.navbar.navbar-default#top_navbar role="navigation"
       .container-fluid
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -16,13 +18,13 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#" Brand
+          a.navbar-brand href="#" 摸 Mo
         .collapse.navbar-collapse#bs-example-navbar-collapse-1
           ul.nav.navbar-nav
-            li.active
-              a href="#" Link
-            li
-              a href="#" Link
+            li#index
+              = link_to '首页', mo_index_path
+            li#sc_index
+              = link_to '专题', mo_sc_index_path
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
                 |Dropdown
@@ -37,10 +39,6 @@ html
                 li.divider
                 li
                   a href="#" Separated link
-          form.navbar-form.navbar-left role="search"
-            div.form-group
-              input.form-control type="text" placeholder="Search"
-            button.btn.btn-default type="submit" Submit
           ul.nav.navbar-nav.navbar-right
             li
               a href="#" Link
@@ -58,7 +56,14 @@ html
                 li.divider
                 li
                   a href="#" Separated link
+          form.navbar-form.navbar-right role="search"
+            div.form-group
+                input.form-control type="text" placeholder="搜索..."
     .container
+      - if flash.notice
+        .alert.alert-info = flash.notice
+      - if flash.alert
+        .alert.alert-warning = flash.alert
       .row
         == yield
       footer

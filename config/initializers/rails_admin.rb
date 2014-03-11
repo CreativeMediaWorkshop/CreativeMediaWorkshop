@@ -31,4 +31,24 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model MoItem do
+    edit do
+      include_all_fields
+      field :tag_list do
+        label "Tags"
+      end
+      field :tag_list
+    end
+  end
+
+  config.model MainArticle do
+    edit do
+      include_all_fields
+      field :tag_list do
+        label "Tags"
+      end
+      field :tag_list
+    end
+  end
 end
