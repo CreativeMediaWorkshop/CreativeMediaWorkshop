@@ -47,6 +47,9 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    carrierwave-qiniu (0.0.8)
+      carrierwave
+      qiniu-rs (~> 3.4.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -108,6 +111,11 @@ GEM
     predictionio (0.6.0)
     puma (2.7.1)
       rack (>= 1.1, < 2.0)
+    qiniu-rs (3.4.6)
+      json (~> 1.7)
+      mime-types (~> 1.19)
+      rest-client (~> 1.6)
+      ruby-hmac (~> 0.4)
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -155,6 +163,9 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     remotipart (1.2.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    ruby-hmac (0.4.0)
     safe_yaml (1.0.1)
     sass (3.2.14)
     sass-rails (4.0.1)
@@ -215,6 +226,7 @@ DEPENDENCIES
   bootstrap-sass
   cancan
   carrierwave
+  carrierwave-qiniu
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
@@ -227,6 +239,7 @@ DEPENDENCIES
   piet
   predictionio
   puma
+  qiniu-rs
   rails (= 4.1.0.beta1)
   rails-settings-cached
   rails_12factor

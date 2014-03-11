@@ -48,6 +48,8 @@ gem 'cancan'
 
 # Uploader
 gem 'carrierwave'
+gem 'qiniu-rs'
+gem 'carrierwave-qiniu'
 
 # Image Processing
 gem 'mini_magick'
