@@ -12,4 +12,6 @@ test:
   <<: *default
   database: cmw_test
 
-#production: <%= ENV["RAILS_DATABASE_URL"] %>
+production: 
+  <<: *default
+  database: cmw_production
