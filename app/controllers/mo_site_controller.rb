@@ -17,7 +17,7 @@ class MoSiteController < ApplicationController
   end
 
   def item
-
+    #if @mo_item.type == "image"
   end
 
   private

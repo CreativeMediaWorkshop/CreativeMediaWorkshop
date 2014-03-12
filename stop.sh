@@ -1,1 +1,1 @@
-kill -s SIGTERM 'cat /var/run/puma_cmw.pid'
+kill -s SIGTERM `cat /var/run/puma_cmw.pid`

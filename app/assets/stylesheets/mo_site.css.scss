@@ -8,6 +8,28 @@ $brand-primary: #fb4e3e;
 
 #top_navbar{
 	.navbar-header button span.icon-bar{
-		background-color: $brand-primary; 
+		background-color: $brand-primary;
+	}
+
+	#top-navbar-collapse{
+		li.active{
+			border-bottom-style: solid;
+			border-bottom-width: 1px; 
+			border-color: $brand-primary;
+		}
+		li#index a{
+			
+		}
+		#cmw-dropdown a{
+			color: $text-color;
+		}
+	}
+}
+
+footer{
+	margin-top: 30px;
+	code{
+		color: $brand-primary;
+		background-color: #fff;
 	}
 }

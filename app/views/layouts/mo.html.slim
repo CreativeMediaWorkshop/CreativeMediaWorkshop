@@ -1,27 +1,32 @@
 doctype html
 html
   head
-    title 摸Mo
+    title 摸Mo + #{controller.action_name}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "mo_site", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "mo_site", "data-turbolinks-track" => true
     = csrf_meta_tags
     javascript:
-      $("#top_navbar .navbar-nav li##{action_name}").addClass("active");
-  body#mo_body
+      function activateBar(){
+        $("#top_navbar .navbar-nav li#active").removeClass("active");
+        $("#top_navbar .navbar-nav li#" + $("#info").attr("data")).addClass("active");
+      }
+      $(document).ready(activateBar);
+      $(document).on('page:load', activateBar);
+  body
     nav.navbar.navbar-primary#top_navbar role="navigation"
       .container-fluid
         .navbar-header
-          button.navbar-toggle type="button" data-toggle="collapse" data-target="#top_navbar-collapse-1"
+          button.navbar-toggle type="button" data-toggle="collapse" data-target="#top-navbar-collapse"
             span.icon-bar
             span.icon-bar
             span.icon-bar
           a.navbar-brand href="#" 摸 Mo
-        .collapse.navbar-collapse#top_navbar-collapse-1
+        .collapse.navbar-collapse#top-navbar-collapse
           ul.nav.navbar-nav
             li#index
-              = link_to '首页', mo_index_path
+              = link_to "首页", mo_index_path
             li#sc_index
               = link_to '专题', mo_sc_index_path
             li.dropdown
@@ -43,14 +48,26 @@ html
               p.navbar-text
                 |欢迎，
                 = current_cmw_account.name
-              li
-                = link_to '登出', destroy_cmw_account_session_path, :method => :delete
+              li.dropdown#account-dropdown
+                a.dropdown-toggle href="#" data-toggle="dropdown"
+                  |CMW-Account
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a href="#" Action
+                  li
+                    a href="#" Another action
+                  li
+                    a href="#" Something else here
+                  li.divider
+                  li
+                    = link_to '登出', destroy_cmw_account_session_path, :method => :delete
             - else
               li
                 = link_to '登录', new_cmw_account_session_path
-            li.dropdown
+            li.dropdown#cmw-dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
-                |Dropdown
+                |创意媒体工作室
                 b.caret
               ul.dropdown-menu
                 li
@@ -72,4 +89,5 @@ html
         .alert.alert-warning = flash.alert
       == yield
       footer
+        code Designed by <a href='https://github.com/timguoqk'>Qikun Guo</a>, a member of <b>Creative Media Workshop</b>.
     
