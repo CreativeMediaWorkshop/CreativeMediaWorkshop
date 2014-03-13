@@ -2,15 +2,13 @@
 
 === Current Tasks
 
-Mar. 13
-
-* mo_site's index
-        
 Mar. 14
 
 * mo_site's item
 
 * mo_site's scindex
+
+* subdomain (using lvh.me)
 
 Mar. 15
 

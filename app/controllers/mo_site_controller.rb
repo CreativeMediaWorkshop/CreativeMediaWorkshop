@@ -17,6 +17,7 @@ class MoSiteController < ApplicationController
   end
 
   def item
+    @mo_item.click_times = @mo_item.click_times + 1
     #if @mo_item.type == "image"
   end
 

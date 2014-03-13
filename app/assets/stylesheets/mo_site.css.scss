@@ -6,7 +6,13 @@ $brand-primary: #fb4e3e;
 
 @import 'bootstrap';
 
+body{
+	padding-top: 70px;
+}
+
 #top_navbar{
+	background: rgba(255, 255, 255, 0.85);
+	
 	.navbar-header button span.icon-bar{
 		background-color: $brand-primary;
 	}

@@ -5,6 +5,9 @@ gem 'rails', '4.1.0.beta1'
 
 # Use pg as the database for Active Record
 gem 'pg'
+gem 'redis'
+gem 'redis-store'
+gem 'redis-objects'
 
 # Use slim to render the pages
 gem 'slim'
@@ -75,3 +78,6 @@ gem "binding_of_caller", group: [:development, :test]
 
 # Use puma as the app server
 gem 'puma'
+
+# Schedule daily/weekly task
+gem 'rufus-scheduler'

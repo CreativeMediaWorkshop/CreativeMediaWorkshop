@@ -7,5 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Default admin
-admin = CmwAccount.create({ :name => '鹳狸猿', :email => 'bdfzcmw@126.com', :password => 'password', :password_confirmation => 'password'})
+admin = CmwAccount.new({ :name => '鹳狸猿', :email => 'bdfzcmw@126.com', :password => 'password', :password_confirmation => 'password'})
 admin.role = 'admin'
+admin.skip_confirmation!
+admin.save!

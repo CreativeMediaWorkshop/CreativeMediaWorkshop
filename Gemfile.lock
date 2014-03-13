@@ -158,11 +158,18 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.0.7)
+    redis-objects (0.9.0)
+      redis (>= 3.0.2)
+    redis-store (1.1.4)
+      redis (>= 2.2)
     ref (1.0.5)
     remotipart (1.2.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     ruby-hmac (0.4.0)
+    rufus-scheduler (3.0.6)
+      tzinfo
     safe_yaml (1.0.1)
     sass (3.2.14)
     sass-rails (4.0.1)
@@ -241,6 +248,10 @@ DEPENDENCIES
   rails (= 4.1.0.beta1)
   rails-settings-cached
   rails_admin
+  redis
+  redis-objects
+  redis-store
+  rufus-scheduler
   sass-rails (~> 4.0.0.rc1)
   sdoc
   slim

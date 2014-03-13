@@ -13,7 +13,7 @@ html
     - if flash.alert
       .alert.alert-warning = flash.alert
 
-    nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+    nav.navbar.navbar-primary.navbar-fixed-top#top_navbar role="navigation"
       .container-fluid
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target="#top-navbar-collapse"
@@ -24,23 +24,23 @@ html
         .collapse.navbar-collapse#top-navbar-collapse
           ul.nav.navbar-nav
             li#index
-              = link_to "首页", mo_index_path
+              = link_to "首页", root_path
             li#sc_index
-              = link_to '部门', mo_sc_index_path
+              = link_to '部门', root_path
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
                 |部门简介
                 b.caret
               ul.dropdown-menu
                 li
-                  a href="#" Action
+                  a href="#" 
                 li
-                  a href="#" Another action
+                  a href="#" 
                 li
-                  a href="#" Something else here
+                  a href="#" 
                 li.divider
                 li
-                  a href="#" Separated link
+                  a href="#" 
           ul.nav.navbar-nav.navbar-right
             - if cmw_account_signed_in?
               p.navbar-text

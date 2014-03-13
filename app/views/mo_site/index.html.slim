@@ -1,15 +1,39 @@
 #info data="#{controller.action_name}"
-.row
-  h1 THIS IS MO
+
+.page-header
+  h1 
+    |摸
+    small 来自创意媒体工作室的媒体平台
 .row
   .col-md-9
-    h1 MoSite#index
-    p Find me in app/views/mo_site/index.html.slim
-    = image_tag 'Mo1024768.png', :class => 'img-responsive'
+    /= image_tag 'Mo1024768.png', :class => 'img-responsive'
+    .jumbotron
+      h2 请在此处脑补高大上的每日一图
+      /- temp = MoItem.find($redis.get('daily_item')).file_url+'-big'
+      /= image_tag "#{temp}"
+    .panel.panel-primary
+      .panel-heading
+        h3.panel-title 最新上传
+      .panel-body
+        - @mo_items.last(4) do |i|
+          .col-xs-6.col-md-3
+            a.thumbnail href="#{mo_item_path(i)}"
+              - temp = i.file_url+'-small'
+              img src="#{temp}"
+      .panel-footer 点击查看大图
   .col-md-3
-    .well
-      |This is a side well
-    .well
-      .update-header 更新日志
-      .update-content 网站基本建立
+    .panel.panel-info
+      .panel-heading
+        h3.panel-title 随便看看
+      .panel-body
+        - @rand_item = @mo_items.sample
+          a.thumbnail href="#{mo_item_path(@rand_item)}"
+            - temp = @rand_item.file_url+'-small'
+            img src="#{temp}"
+    .panel.panel-primary
+      .panel-heading
+        h3.panel-title 更新日志
+      = render 'update_table'
+      .panel-footer
+        |*: To Be Announced.
       

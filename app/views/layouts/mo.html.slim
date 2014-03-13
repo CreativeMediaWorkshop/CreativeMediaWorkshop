@@ -9,40 +9,40 @@ html
     = csrf_meta_tags
     javascript:
       function activateBar(){
-        $("#top_navbar .navbar-nav li#active").removeClass("active");
-        $("#top_navbar .navbar-nav li#" + $("#info").attr("data")).addClass("active");
+        $("#top_navbar li#active").removeClass("active");
+        $("#top_navbar li#" + $("#info").attr("data")).addClass("active");
       }
       $(document).ready(activateBar);
       $(document).on('page:load', activateBar);
   body
-    nav.navbar.navbar-primary#top_navbar role="navigation"
+    nav.navbar.navbar-primary.navbar-fixed-top#top_navbar role="navigation"
       .container-fluid
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target="#top-navbar-collapse"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#" 摸 Mo
+          = link_to "摸 Mo", mo_index_path, :class => 'navbar-brand'
         .collapse.navbar-collapse#top-navbar-collapse
           ul.nav.navbar-nav
             li#index
               = link_to "首页", mo_index_path
             li#sc_index
               = link_to '专题', mo_sc_index_path
-            li.dropdown
-              a.dropdown-toggle href="#" data-toggle="dropdown"
-                |Dropdown
-                b.caret
-              ul.dropdown-menu
-                li
-                  a href="#" Action
-                li
-                  a href="#" Another action
-                li
-                  a href="#" Something else here
-                li.divider
-                li
-                  a href="#" Separated link
+            / li.dropdown
+            /   a.dropdown-toggle href="#" data-toggle="dropdown"
+            /     |Dropdown
+            /     b.caret
+            /   ul.dropdown-menu
+            /     li
+            /       a href="#" Action
+            /     li
+            /       a href="#" Another action
+            /     li
+            /       a href="#" Something else here
+            /     li.divider
+            /     li
+            /       a href="#" Separated link
           ul.nav.navbar-nav.navbar-right
             - if cmw_account_signed_in?
               p.navbar-text
@@ -54,34 +54,29 @@ html
                   b.caret
                 ul.dropdown-menu
                   li
-                    a href="#" Action
-                  li
-                    a href="#" Another action
-                  li
-                    a href="#" Something else here
+                    = link_to '修改密码', edit_cmw_account_password_path
                   li.divider
                   li
                     = link_to '登出', destroy_cmw_account_session_path, :method => :delete
             - else
               li
                 = link_to '登录', new_cmw_account_session_path
+            li#about
+              = link_to '关于', mo_about_path
             li.dropdown#cmw-dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
                 |创意媒体工作室
                 b.caret
               ul.dropdown-menu
                 li
-                  a href="#" Action
-                li
-                  a href="#" Another action
-                li
-                  a href="#" Something else here
+                  = link_to '主站', root_path
                 li.divider
                 li
-                  a href="#" Separated link
+                  a href="mailto: bdfzcmw@126.com" 联系我们
           / form.navbar-form.navbar-right role="search"
           /   div.form-group
           /       input.form-control type="text" placeholder="搜索..."
+    = yield :before_container
     .container
       - if flash.notice
         .alert.alert-info = flash.notice
