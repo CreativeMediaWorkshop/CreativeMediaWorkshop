@@ -4,8 +4,6 @@
 
 Mar. 13
 
-* devise optimization
-
 * mo_site's index
         
 Mar. 14

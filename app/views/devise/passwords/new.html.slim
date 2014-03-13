@@ -1,15 +1,16 @@
-.container
+.container#devise-container
   .row
     .col-md-9
       h2 忘记密码
       = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
         = devise_error_messages!
 
-        = f.label :email
-        <br />
-        = f.email_field :email, :autofocus => true
+        .input-group
+          span.input-group-addon 邮箱
+          = f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => 'xiaoming@stu.pkuschool.edu.cn'
         <br />
 
-        = f.submit "发送密码重置邮件"
-    .col-md-3
-      = render "devise/shared/links"
+        button.btn.btn-primary type="submit"
+          span.glyphicon.glyphicon-send
+            |  发送密码重置邮件
+    = render "devise/shared/links"

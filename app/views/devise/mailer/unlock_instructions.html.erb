@@ -1,7 +1,7 @@
-<p>Hello <%= @resource.email %>!</p>
+<p>你好， <%= @resource.name %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>因为在登录时密码多次有误，您的账号已被锁定。</p>
 
-<p>Click the link below to unlock your account:</p>
+<p>请点击下面的链接以解锁您的CMW Account:</p>
 
 <p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @token) %></p>
