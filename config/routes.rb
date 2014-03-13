@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'special/:id' => :special, as: :special
     get 'category/:id' => :category, as: :category
     get 'item/:id' => :item, as: :item
+    get 'about' => :about, as: :about
   end
 
   scope controller: :main_site, as: 'main_site' do

@@ -2,17 +2,41 @@
 
 === Current Tasks
 
-* add heroku models like 
+Mar. 13
 
-https://addons.heroku.com/zeropush
+* devise optimization
 
-https://addons.heroku.com/keen
+* mo_site's index
+        
+Mar. 14
 
-https://addons.heroku.com/sendgrid
+* mo_site's item
 
-https://addons.heroku.com/spreedlycore
+* mo_site's scindex
+
+Mar. 15
+
+* general styles for main_site
+
+* draft main_site's overall framework and assign rest of the work
+
+Mar.16
+
+* mo_site's category
+
+Mar. 17
+
+* mo_site's search by tag function
+
+Mar. 18
+
+* cart function
 
 * add ActiveMerchant & activemerchant_patch_for_china
+
+Mar. 19
+
+* comment system
 
 === Before Production
 
@@ -21,6 +45,16 @@ https://addons.heroku.com/spreedlycore
 * change Qiniu's keys
 
 * add routes for subdomain (constraints: {subdomain: 'admin'})
+
+* test devise mailer
+
+* finish the last part of README
+
+Problems with server:
+
+* nginx routes for php site and ruby site
+
+* broken asset access
 
 === TO BE WRITTEN DOWN
 This README would normally document whatever steps are necessary to get the

@@ -20,6 +20,10 @@ class MoSiteController < ApplicationController
     #if @mo_item.type == "image"
   end
 
+  def about
+    
+  end
+
   private
   	def set_mo_item
       @mo_item = MoItem.find(params[:id])
