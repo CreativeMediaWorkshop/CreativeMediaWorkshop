@@ -1,26 +1,32 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  root 'main_site#index'
+  constraints(!Subdomain) do
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  end
 
-  scope path: '/mo', controller: :mo_site, as: 'mo' do
-    get '' => :index, as: :index
-    get 'sc_index' => :sc_index, as: :sc_index
-    get 'special/:id' => :special, as: :special
-    get 'category/:id' => :category, as: :category
-    get 'item/:id' => :item, as: :item
-    get 'about' => :about, as: :about
+  #scope path: '/mo', controller: :mo_site, as: 'mo' do
+  constraints subdomain: 'mo' do
+    scope controller: :mo_site, as: 'mo' do
+      get '' => :index, as: :index
+      get 'sc_index' => :sc_index, as: :sc_index
+      get 'special/:id' => :special, as: :special
+      get 'category/:id' => :category, as: :category
+      get 'item/:id' => :item, as: :item
+      get 'about' => :about, as: :about
+    end
   end
 
   scope controller: :main_site, as: 'main_site' do
-    # Use static pages!
-    #get 'about' => :about
-    #get 'dept/:id' => :dept, as: 'dept'
+    get 'about' => :about
+    get 'dept/:id' => :dept, as: 'dept'
     get 'contact' => :contact
     post 'contact' => :contact
     get 'article/:id' => :article, as: :article
   end
 
   devise_for :cmw_accounts
+
+  root 'main_site#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

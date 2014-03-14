@@ -9,4 +9,24 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "禁止访问！"
     redirect_to main_app.root_url
   end
+
+  after_filter :store_location
+
+  # Devise redirect to last page
+  def store_location
+    # store last url as long as it isn't a /cmw_accounts path
+    # session[:previous_url] = request.original_url unless request.original_url =~ /\/cmw_accounts/
+      # store last url - this is needed for post-login redirect to whatever the user last visited.
+    if (request.fullpath != "/cmw_accounts/sign_in" &&
+        request.fullpath != "/cmw_accounts/sign_up" &&
+        request.fullpath != "/cmw_accounts/password" &&
+        request.fullpath != "/cmw_accounts/sign_out" &&
+        !request.xhr?) # don't store ajax calls
+      session[:previous_url] = request.original_url 
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_url
+  end
 end

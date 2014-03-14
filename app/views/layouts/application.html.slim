@@ -12,7 +12,6 @@ html
       .alert.alert-info = flash.notice
     - if flash.alert
       .alert.alert-warning = flash.alert
-
     nav.navbar.navbar-primary.navbar-fixed-top#top_navbar role="navigation"
       .container-fluid
         .navbar-header
@@ -64,7 +63,7 @@ html
               li
                 = link_to '登录', new_cmw_account_session_path
             li
-              = link_to '摸 Mo', mo_index_path
+              = link_to '摸 Mo', mo_index_url(:subdomain => 'mo')
           / form.navbar-form.navbar-right role="search"
           /   div.form-group
           /       input.form-control type="text" placeholder="搜索..."

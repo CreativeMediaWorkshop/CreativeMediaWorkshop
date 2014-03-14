@@ -7,6 +7,10 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "mo_site", "data-turbolinks-track" => true
     = csrf_meta_tags
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    meta name="HandheldFriendly" content="true"
     javascript:
       function activateBar(){
         $("#top_navbar li#active").removeClass("active");
@@ -54,13 +58,13 @@ html
                   b.caret
                 ul.dropdown-menu
                   li
-                    = link_to '修改密码', edit_cmw_account_password_path
+                    = link_to '修改密码', edit_cmw_account_password_url(:subdomain => 'www')
                   li.divider
                   li
-                    = link_to '登出', destroy_cmw_account_session_path, :method => :delete
+                    = link_to '登出', destroy_cmw_account_session_url(:subdomain => 'www'), :method => :delete
             - else
               li
-                = link_to '登录', new_cmw_account_session_path
+                = link_to '登录', new_cmw_account_session_url(:subdomain => 'www')
             li#about
               = link_to '关于', mo_about_path
             li.dropdown#cmw-dropdown
@@ -69,7 +73,7 @@ html
                 b.caret
               ul.dropdown-menu
                 li
-                  = link_to '主站', root_path
+                  = link_to '主站', root_url(:subdomain => 'www')
                 li.divider
                 li
                   a href="mailto: bdfzcmw@126.com" 联系我们
@@ -85,4 +89,4 @@ html
       == yield
       footer
         code Designed by <a href='https://github.com/timguoqk'>Qikun Guo</a>, a member of <b>Creative Media Workshop</b>.
-    
+      

@@ -8,8 +8,6 @@ Mar. 14
 
 * mo_site's scindex
 
-* subdomain (using lvh.me)
-
 Mar. 15
 
 * general styles for main_site
@@ -19,6 +17,8 @@ Mar. 15
 Mar.16
 
 * mo_site's category
+
+* use server alias to fix problems in nginx
 
 Mar. 17
 
