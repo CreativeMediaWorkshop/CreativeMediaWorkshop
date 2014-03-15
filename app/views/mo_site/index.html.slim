@@ -9,9 +9,9 @@
     /= image_tag 'Mo1024768.png', :class => 'img-responsive'
     .jumbotron
       - temp = MoItem.find($redis.get('daily_item_id'))
-      h3 每日一图
+      .title The Daily Mo
       a href="#{mo_item_path(temp)}"
-      img.img-responsive src="#{temp.file_url(24*60*60, 'big')}"
+        img.img-responsive src="#{temp.file_url(24*60*60, 'big')}"
     .panel.panel-primary
       .panel-heading
         h3.panel-title 最新上传
@@ -26,13 +26,12 @@
       .panel-heading
         h3.panel-title 随便看看
       .panel-body
-        - @rand_item = @mo_items.sample
-        a.thumbnail href="#{mo_item_path(@rand_item)}"
-          img src="#{@rand_item.file_url(1800, 'small')}"
+        - rand_item = @mo_items.sample
+        a.thumbnail href="#{mo_item_path(rand_item)}"
+          img src="#{rand_item.file_url(1800, 'small')}"
+          = rand_item.title
     .panel.panel-primary
       .panel-heading
         h3.panel-title 更新日志
       = render 'update_table'
-      .panel-footer
-        |*: To Be Announced.
       

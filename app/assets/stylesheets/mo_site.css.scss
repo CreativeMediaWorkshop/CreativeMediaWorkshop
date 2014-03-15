@@ -10,7 +10,7 @@ body{
 	padding-top: 70px;
 }
 
-#top_navbar{
+#top-navbar{
 	background: rgba(255, 255, 255, 0.85);
 	
 	.navbar-header button span.icon-bar{
@@ -28,6 +28,18 @@ body{
 		}
 		#cmw-dropdown a{
 			color: $text-color;
+		}
+	}
+}
+
+.container{
+	.row{
+		.col-md-9{
+			.jumbotron{
+				.title{
+					float: top;
+				}
+			}
 		}
 	}
 }

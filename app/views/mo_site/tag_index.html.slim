@@ -1,0 +1,17 @@
+/TODO: Create an AJAX page that fulfills the function of the two pages
+
+/https://github.com/lucaong/jQCloud
+= stylesheet_link_tag "jqcloud.css", media: "all", "data-turbolinks-track" => true
+= javascript_include_tag "jqcloud104.min.js", "data-turbolinks-track" => true
+javascript:
+  $.getJSON("#{mo_tag_index_url(format: :json)}", { key: 'value', otherkey: true }, function(data){
+      $("#tag_cloud").jQCloud(data);
+    }
+  );
+
+#info data="tag"
+
+.row
+  .col-md-9
+    #tag_cloud style="width: 550px; height: 350px;"
+  .col-md-3 = render 'sidebar'

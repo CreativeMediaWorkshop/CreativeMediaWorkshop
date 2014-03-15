@@ -1,5 +1,29 @@
 #info data="#{controller.action_name}"
 .row
-.row
   .col-md-9
-  .col-md-3 ==render 'sidebar'
+    h1.title = @mo_item.title
+    h2.subtitle = @mo_item.subtitle
+    .author = CmwAccount.find(@mo_item.author_id).name
+
+    .row#main-content
+    img alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big')}"
+
+    - if $redis.get('daily_item_id') == @mo_item.id
+      .daily-item-container
+
+  .col-md-3 
+    / TODO!: make EXIF functions properly!!
+    / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
+    - exif_hash = Qiniu::RS.image_exif(@mo_item.file_url(60, '-'))
+    - if exif_hash != false
+      .exif
+        tr
+          - exif_hash.first.data.keys.each do |attribute_name|
+            th= attribute_name
+        - exif_hash.each do |product|
+          tr
+            - product.data.attributes.each do |attribute_value|
+              td = attribute_value
+
+    .purchase
+    ==render 'sidebar'

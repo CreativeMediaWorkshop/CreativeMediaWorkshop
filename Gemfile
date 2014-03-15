@@ -68,6 +68,7 @@ gem 'rails-settings-cached'
 gem 'rails_admin'
 gem 'predictionio'
 gem 'acts-as-taggable-on'
+gem 'exifr'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

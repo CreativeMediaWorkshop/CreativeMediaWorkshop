@@ -11,15 +11,8 @@ html
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
     meta name="HandheldFriendly" content="true"
-    javascript:
-      function activateBar(){
-        $("#top_navbar li#active").removeClass("active");
-        $("#top_navbar li#" + $("#info").attr("data")).addClass("active");
-      }
-      $(document).ready(activateBar);
-      $(document).on('page:load', activateBar);
   body
-    nav.navbar.navbar-primary.navbar-fixed-top#top_navbar role="navigation"
+    nav.navbar.navbar-primary.navbar-fixed-top#top-navbar role="navigation"
       .container-fluid
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target="#top-navbar-collapse"
@@ -31,8 +24,15 @@ html
           ul.nav.navbar-nav
             li#index
               = link_to "首页", mo_index_path
-            li#sc_index
+            li#explore
+              = link_to '探索', mo_explore_path(1)
+            li#sc
               = link_to '专题', mo_sc_index_path
+            li#tag
+              = link_to '标签', mo_tag_index_path
+            li#about
+              = link_to '关于', mo_about_path
+
             / li.dropdown
             /   a.dropdown-toggle href="#" data-toggle="dropdown"
             /     |Dropdown
@@ -86,7 +86,8 @@ html
         .alert.alert-info = flash.notice
       - if flash.alert
         .alert.alert-warning = flash.alert
-      == yield
-      footer
-        code Designed by <a href='https://github.com/timguoqk'>Qikun Guo</a>, a member of <b>Creative Media Workshop</b>.
-      
+      #main-yield == yield
+      footer.footer
+        .row-fluid
+          p Designed by <a href='https://github.com/timguoqk'>Qikun Guo</a>, a member of <b>Creative Media Workshop</b>.
+        

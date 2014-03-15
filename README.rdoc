@@ -2,15 +2,11 @@
 
 === Current Tasks
 
-Mar. 14
+Mar. 15
 
 * mo_site's item
 
-* mo_site's scindex
-
-Mar. 15
-
-* general styles for main_site
+* mo_site's tag system
 
 * draft main_site's overall framework and assign rest of the work
 
@@ -22,9 +18,12 @@ Mar.16
 
 Mar. 17
 
+计划今日上线！！！
 * mo_site's search by tag function
 
 Mar. 18
+
+* some redesign
 
 * cart function
 
@@ -33,6 +32,12 @@ Mar. 18
 Mar. 19
 
 * comment system
+
+* mo_site's scsystem
+
+Mar. 20
+
+* general styles for main_site
 
 === Before Production
 

@@ -7,12 +7,16 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "main_site", "data-turbolinks-track" => true
     = csrf_meta_tags
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    meta name="HandheldFriendly" content="true"
   body
     - if flash.notice
       .alert.alert-info = flash.notice
     - if flash.alert
       .alert.alert-warning = flash.alert
-    nav.navbar.navbar-primary.navbar-fixed-top#top_navbar role="navigation"
+    nav.navbar.navbar-primary.navbar-fixed-top#top-navbar role="navigation"
       .container-fluid
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target="#top-navbar-collapse"
@@ -24,7 +28,7 @@ html
           ul.nav.navbar-nav
             li#index
               = link_to "首页", root_path
-            li#sc_index
+            li#dept
               = link_to '部门', root_path
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
