@@ -160,6 +160,9 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     redis (3.0.7)
+    redis-cache (1.1.0)
+      activesupport (>= 3.0)
+      redis (>= 3.0.0)
     redis-objects (0.9.0)
       redis (>= 3.0.2)
     redis-store (1.1.4)
@@ -251,6 +254,7 @@ DEPENDENCIES
   rails-settings-cached
   rails_admin
   redis
+  redis-cache
   redis-objects
   redis-store
   rufus-scheduler

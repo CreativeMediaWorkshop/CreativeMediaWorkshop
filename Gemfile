@@ -8,6 +8,7 @@ gem 'pg'
 gem 'redis'
 gem 'redis-store'
 gem 'redis-objects'
+gem 'redis-cache'
 
 # Use slim to render the pages
 gem 'slim'
