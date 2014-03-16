@@ -6,10 +6,11 @@
     .author = CmwAccount.find(@mo_item.author_id).name
 
     .row#main-content
-    img alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big')}"
+      img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'mid')}"
 
     - if $redis.get('daily_item_id') == @mo_item.id
       .daily-item-container
+        img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big')}"
 
   .col-md-3 
     / TODO!: make EXIF functions properly!!

@@ -1,6 +1,6 @@
 class MoItem < ActiveRecord::Base
   
-  validates_presence_of :author_id, :item_type, :via_uploader
+  validates_presence_of :author_id, :item_type
 
   acts_as_taggable
 

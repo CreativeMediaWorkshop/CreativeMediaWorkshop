@@ -1,5 +1,5 @@
-<p>注册你的CMW Account <%= @email %>!</p>
+<h2>注册你的CMW Account <%= @email %>!</h2>
 
-<p>点击下面的链接以完成CMW Account的注册</p>
+<p>点击<%= link_to '此处', confirmation_url(@resource, :confirmation_token => @token) %>以完成CMW Account的注册</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p>摸Mo - 创意媒体工作室</p>

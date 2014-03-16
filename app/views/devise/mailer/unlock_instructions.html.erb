@@ -1,7 +1,7 @@
-<p>你好， <%= @resource.name %>!</p>
+<h2>你好， <%= @resource.name %>!</h2>
 
 <p>因为在登录时密码多次有误，您的账号已被锁定。</p>
 
-<p>请点击下面的链接以解锁您的CMW Account:</p>
+<p>请点击<%= link_to '此处', unlock_url(@resource, :unlock_token => @token) %>以解锁您的CMW Account:</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @token) %></p>
+<p>摸Mo - 创意媒体工作室</p>
