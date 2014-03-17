@@ -1,0 +1,17 @@
+- if cmw_account_signed_in?
+  p.navbar-text
+    |欢迎，
+    = current_cmw_account.name
+  li.dropdown#account-dropdown
+    a.dropdown-toggle href="#" data-toggle="dropdown"
+      |CMW-Account
+      b.caret
+    ul.dropdown-menu
+      li
+        = link_to '修改密码', edit_cmw_account_password_url(:subdomain => 'www')
+      li.divider
+      li
+        = link_to '登出', destroy_cmw_account_session_url(:subdomain => 'www'), :method => :delete
+- else
+  li
+    = link_to '登录', new_cmw_account_session_url(:subdomain => 'www')
