@@ -1,3 +1,14 @@
 #info data="tag"
 
-- @tag_items
+.row
+  .col-md-10
+    .row
+      - @tag_items.each do |i|
+        .col-xs-6.col-md-3
+          a.thumbnail href="#{mo_item_path(i)}"
+            img src="#{i.file_url(1800, 'small')}"
+  .col-md-2
+    .tag-text Tag: #{params[:id]}
+    .tag-count Count: #{@tag_items.count}
+
+= paginate @tag_items

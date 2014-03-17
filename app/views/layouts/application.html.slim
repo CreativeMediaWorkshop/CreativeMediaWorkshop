@@ -1,7 +1,8 @@
 doctype html
 html
   head
-    title ="#{controller.controller_name} #{controller.action_name} | CMW"
+    /TODO!
+    title ="创意媒体工作室"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "main_site", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -23,13 +24,13 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#" 创意媒体工作室
+          a.navbar-brand href="thecmw.cn" 创意媒体工作室
         .collapse.navbar-collapse#top-navbar-collapse
           ul.nav.navbar-nav
             li#index
-              = link_to "首页", root_path
+              = link_to "首页", root_url(:subdomain => 'www')
             li#dept
-              = link_to '部门', root_path
+              = link_to '部门', root_url(:subdomain => 'www')
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown"
                 |部门简介
@@ -45,27 +46,7 @@ html
                 li
                   a href="#" 
           ul.nav.navbar-nav.navbar-right
-            - if cmw_account_signed_in?
-              p.navbar-text
-                |欢迎，
-                = current_cmw_account.name
-              li.dropdown#account-dropdown
-                a.dropdown-toggle href="#" data-toggle="dropdown"
-                  |CMW-Account
-                  b.caret
-                ul.dropdown-menu
-                  li
-                    a href="#" Action
-                  li
-                    a href="#" Another action
-                  li
-                    a href="#" Something else here
-                  li.divider
-                  li
-                    = link_to '登出', destroy_cmw_account_session_path, :method => :delete
-            - else
-              li
-                = link_to '登录', new_cmw_account_session_path
+            = render 'layouts/account_dropdown'
             li
               = link_to '摸 Mo', mo_index_url(:subdomain => 'mo')
           / form.navbar-form.navbar-right role="search"

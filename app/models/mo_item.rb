@@ -28,11 +28,20 @@ class MoItem < ActiveRecord::Base
     "http://cmw-rails.qiniudn.com/mo_image/#{name}#{suffix}?token=#{token}"
   end
 
-  def isImage?
+  def image?
     if type == 'image'
       true
+    else
+      false
     end
-    false
+  end
+
+  def daily?
+    if $redis.get('daily_item_id').to_i == id
+      true
+    else
+      false
+    end
   end
 
   def hit

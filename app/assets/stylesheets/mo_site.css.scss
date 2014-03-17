@@ -11,8 +11,14 @@ body{
 }
 
 #top-navbar{
+	margin-bottom: 0px;
+	//height: 60px;
 	background: rgba(255, 255, 255, 0.85);
 	
+	img#mo-nav-logo{
+		height: 51px;
+		margin-right: 10px;
+	}
 	.navbar-header button span.icon-bar{
 		background-color: $brand-primary;
 	}
@@ -32,15 +38,55 @@ body{
 	}
 }
 
-.container{
-	.row{
-		.col-md-9{
-			.jumbotron{
-				.title{
-					float: top;
-				}
-			}
+.jumbotron#daily-item{
+	height: 500px;
+	padding: 0px;
+	overflow: hidden;
+	img#daily-item-image{
+		min-height: 100%;
+		width: 100%;
+	}
+	.page-header{
+		border-radius: 5px;
+		border-bottom: 0px;
+		position: absolute;
+		left: 30px;
+		top: 100px;
+		padding: 10px;
+		background-color: rgba(255, 255, 255, 0.75);
+		h1{
+			color: $brand-primary;
 		}
+		small{
+
+		}
+	}
+}
+
+.panel#random{
+	a.thumbnail{
+		margin-bottom: 0px;
+	}
+}
+
+.purchase{
+	border-top-style: solid;
+	border-top-width: 3px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+#purchase-info{
+	background-color: rgba($brand-primary, 0.05);
+	border-color: $brand-primary;
+	h4{
+		color: $brand-primary;
+	}
+}
+#purchase-offer{
+	background-color: rgba($brand-info, 0.05);
+	border-color: $brand-info;
+	h4{
+		color: $brand-info;
 	}
 }
 
@@ -49,5 +95,22 @@ footer{
 	code{
 		color: $brand-primary;
 		background-color: #fff;
+	}
+}
+
+//TODO: a better way to do all these works (through css or js)
+@media (min-width: 1300px) {
+	.jumbotron#daily-item{
+		height: 600px;
+	}
+}
+@media (max-width: 1000px) {
+	.jumbotron#daily-item{
+		height: 400px;
+	}
+}
+@media (max-width: 600px) {
+	.jumbotron#daily-item{
+		height: 250px;
 	}
 }

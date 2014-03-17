@@ -6,18 +6,16 @@
     .author = CmwAccount.find(@mo_item.author_id).name
 
     .row#main-content
-      img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'mid')}"
+      img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big.full')}"
 
-    - if $redis.get('daily_item_id') == @mo_item.id
-      .daily-item-container
-        img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big')}"
+    /"#{@mo_item.file_url(1800, '-')}"
 
   .col-md-3 
     / TODO!: make EXIF functions properly!!
     / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
     - exif_hash = Qiniu::RS.image_exif(@mo_item.file_url(60, '-'))
     - if exif_hash != false
-      .exif
+      #exif
         tr
           - exif_hash.first.data.keys.each do |attribute_name|
             th= attribute_name
@@ -26,5 +24,19 @@
             - product.data.attributes.each do |attribute_value|
               td = attribute_value
 
-    .purchase
+    - if @mo_item.daily?
+      .purchase#purchase-offer
+        h4 The Daily Mo
+        p
+          |这是今天的每日一摸！点击
+          a href="#{@mo_item.file_url(1800, 'big.full')}" 这里
+          |免费下载大图吧！
+        p 敬请期待明天的免费放送！
+    - else
+      .purchase#purchase-info
+        h4 Get Full Image!
+        p 
+          |另有4256*2832完整大图，可联系
+          a href='mailto:bdfzcmw@126.com' 创意媒体工作室
+          |低价获取照片及使用授权！
     ==render 'sidebar'

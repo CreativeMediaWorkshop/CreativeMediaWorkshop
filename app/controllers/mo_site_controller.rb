@@ -25,7 +25,7 @@ class MoSiteController < ApplicationController
   end
 
   def tag
-    @tag_items = MoItem.tagged_with(params[:id])
+    @tag_items = MoItem.tagged_with(params[:id]).page(params[:page]) #TODO: Add paginate
   end
 
   def tag_index
@@ -33,7 +33,7 @@ class MoSiteController < ApplicationController
   end
 
   def explore
-    @mo_items = @mo_items.page(params[:id])
+    @mo_items = @mo_items.page(params[:page])
   end
 
   private
@@ -44,4 +44,5 @@ class MoSiteController < ApplicationController
     def set_mo_items
       @mo_items = MoItem.all
     end
+
 end

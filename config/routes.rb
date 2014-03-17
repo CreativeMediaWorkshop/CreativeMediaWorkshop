@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'about' => :about, as: :about
       get 'tag/:id' => :tag, as: :tag
       get 'tag_index' => :tag_index, as: :tag_index
-      get 'explore/:id' => :explore, as: :explore
+      get 'explore' => :explore, as: :explore
     end
   end
 
