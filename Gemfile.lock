@@ -191,6 +191,7 @@ GEM
       activesupport (>= 3.0, < 4.1)
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
+    social-share-button (0.1.5)
     spring (1.1.1)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -262,6 +263,7 @@ DEPENDENCIES
   sdoc
   slim
   slim-rails
+  social-share-button
   spring
   therubyracer
   turbolinks

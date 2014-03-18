@@ -19,6 +19,8 @@
           span.glyphicon.glyphicon-time
           | 上传时间：
           = @mo_item.created_at.to_s.first(10)
+        .share
+          = social_share_button_tag(@mo_item.title, :image => "#{@mo_item.file_url(600, 'mid')}")
       / TODO!: make EXIF functions properly!!
       / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
       - exif_hash = Qiniu::RS.image_exif(@mo_item.file_url(60, '-'))

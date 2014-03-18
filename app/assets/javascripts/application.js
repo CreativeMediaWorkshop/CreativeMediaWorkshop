@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
+//= require social-share-button
