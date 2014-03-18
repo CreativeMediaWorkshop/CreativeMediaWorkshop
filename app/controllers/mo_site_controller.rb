@@ -2,7 +2,7 @@ class MoSiteController < ApplicationController
   layout 'mo'
 
   before_action :set_mo_item, only: [:special, :category, :item]
-  before_action :set_mo_items, only: [:index, :sc_index, :tag_index, :explore]
+  before_action :set_mo_items, only: [:index, :sc_index, :tag_index]
 
   def index
   end
@@ -25,7 +25,7 @@ class MoSiteController < ApplicationController
   end
 
   def tag
-    @tag_items = MoItem.tagged_with(params[:id]).page(params[:page]) #TODO: Add paginate
+    @tag_items = MoItem.tagged_with(params[:id]).page(params[:page])
   end
 
   def tag_index
@@ -33,7 +33,11 @@ class MoSiteController < ApplicationController
   end
 
   def explore
-    @mo_items = @mo_items.page(params[:page])
+    @mo_items = MoItem.order('id desc').page(params[:page])
+  end
+
+  def today
+    @mo_items = MoItem.all.created_between(1.day.ago, Time.now)
   end
 
   private
@@ -42,7 +46,7 @@ class MoSiteController < ApplicationController
     end
 
     def set_mo_items
-      @mo_items = MoItem.all
+      @mo_items = MoItem.all.reverse
     end
 
 end

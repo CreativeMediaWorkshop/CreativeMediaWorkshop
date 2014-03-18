@@ -9,25 +9,25 @@
         |摸 Mo
         <br />
         small 来自创意媒体工作室的媒体平台
-    = link_to '今日照片', "#{mo_item_path(temp)}", :id => "daily-item-button"
-    img.img-responsive#daily-item-image src="#{temp.file_url(24*60*60, 'big')}"
+    a href="#{mo_item_path(temp)}"
+      img.img-responsive#daily-item-image src="#{temp.file_url(24*60*60, 'big')}"
 
 .row
   .col-md-9
-    .panel.panel-primary#random
+    .panel.panel-primary#recent
       .panel-heading
         h3.panel-title 最近上传
       .panel-body
-        - @mo_items.last(4).each do |i|
+        - @mo_items.first(4).each do |i|
           .col-xs-6.col-md-3
             a.thumbnail href="#{mo_item_path(i)}"
               img src="#{i.file_url(1800, 'small')}"
       .panel-footer 点击查看大图
-    .panel.panel-primary#hot
+    .panel.panel-warning#hot
       .panel-heading
         h3.panel-title 本周热门
       .panel-body
-        - MoItem.find(:all, :order => "click_times_week desc", :limit => 3).reverse.each do |i|
+        -  MoItem.limit(3).order('click_times_week desc').each do |i|
           .col-md-4
             a.thumbnail href="#{mo_item_path(i)}"
               img src="#{i.file_url(1800, 'mid')}"

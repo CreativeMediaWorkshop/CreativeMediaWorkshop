@@ -13,6 +13,8 @@ class MoItem < ActiveRecord::Base
   counter :click_times
   counter :click_times_week
 
+  scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
+
   def file_url(time, size)
     if via_uploader
       name = File.basename(file.path)

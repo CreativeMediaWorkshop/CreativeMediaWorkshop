@@ -10,6 +10,7 @@
   .col-md-2
   	.panel.panel-primary
       .panel-heading
-        h3.panel-title 标签#{params[:id]}下有#{@tag_items.count}个对象
+        h3.panel-title Tag: #{params[:id]}
+      .panel-body #{@tag_items.count}个对象
 
 = paginate @tag_items

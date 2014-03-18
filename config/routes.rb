@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'tag/:id' => :tag, as: :tag
       get 'tag_index' => :tag_index, as: :tag_index
       get 'explore' => :explore, as: :explore
+      get 'today' => :today, as: :today
     end
   end
 

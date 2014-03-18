@@ -1,0 +1,7 @@
+#info data="#{controller.action_name}"
+.alert.alert-success 这里显示的是24小时内上传的新内容
+.row
+  - @mo_items.each do |i|
+    .col-xs-6.col-md-3
+      a.thumbnail href="#{mo_item_path(i)}"
+        img src="#{i.file_url(1800, 'mid')}"

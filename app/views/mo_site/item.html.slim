@@ -5,21 +5,34 @@
       img.img-responsive#main-image alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big.full')}"
       h1.title = @mo_item.title
       h2.subtitle = @mo_item.subtitle
-      .author = CmwAccount.find(@mo_item.author_id).name
+      p.description = @mo_item.description
   .col-md-3 
-    / TODO!: make EXIF functions properly!!
-    / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
-    - exif_hash = Qiniu::RS.image_exif(@mo_item.file_url(60, '-'))
-    - if exif_hash != false
-      #exif
-        tr
-          - exif_hash.first.data.keys.each do |attribute_name|
-            th= attribute_name
-        - exif_hash.each do |product|
+    .panel.panel-primary#item-info-panel
+      .panel-heading
+        h3.panel-title 图片信息
+      .panel-body
+        .author
+          span.glyphicon.glyphicon-user
+          | 作者：
+          = CmwAccount.find(@mo_item.author_id).name
+        .date
+          span.glyphicon.glyphicon-time
+          | 上传时间：
+          = @mo_item.created_at.to_s.first(10)
+      / TODO!: make EXIF functions properly!!
+      / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
+      - exif_hash = Qiniu::RS.image_exif(@mo_item.file_url(60, '-'))
+      - if exif_hash != false
+        #exif
           tr
-            - product.data.attributes.each do |attribute_value|
-              td = attribute_value
-
+            - exif_hash.first.data.keys.each do |attribute_name|
+              th= attribute_name
+          - exif_hash.each do |product|
+            tr
+              - product.data.attributes.each do |attribute_value|
+                td = attribute_value
+      - else
+        .panel-footer 暂不支持EXIF信息查看
     - if @mo_item.daily?
       .purchase#purchase-offer
         h4 The Daily Mo
@@ -35,4 +48,4 @@
           |另有4256*2832完整大图，可联系
           a href='mailto:bdfzcmw@126.com' 创意媒体工作室
           |低价获取照片及使用授权！
-    ==render 'sidebar'
+    /==render 'sidebar'
