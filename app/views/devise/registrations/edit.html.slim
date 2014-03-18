@@ -6,25 +6,29 @@
 
         = devise_error_messages!
 
-        / <div><%= f.label :email %><br />
-        / <%= f.email_field :email, :autofocus => true %></div>
 
-        / <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        /   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        / <% end %>
+        = f.label :email
+        = f.email_field :email, :autofocus => true
 
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          |Currently waiting confirmation for:
+          = resource.unconfirmed_email
         .input-group
-          span.input-group-addon 新密码
-          = f.password_field :password, :autofocus => true, :class => 'form-control', placeholder => '如果不需要修改请留空'
+          span.input-group-addon 昵称
+          = f.text_field :name, :autofocus => true, :class => 'form-control'
         <br />
-        .input-group
-          span.input-group-addon 新密码确认
-          = f.password_field :password_confirmation, :autofocus => true, :class => 'form-control', placeholder => '如果不需要修改请留空'
-        <br />
+        /.input-group
+        /  span.input-group-addon 新密码
+        /  = f.password_field :password, :class => 'form-control'
+        /<br />
+        /.input-group
+        /  span.input-group-addon 新密码确认
+        /  = f.password_field :password_confirmation, :autofocus => true, :class => 'form-control'
+        /<br />
 
         .input-group
           span.input-group-addon 当前密码
-          = f.password_field :password, :autofocus => true, :class => 'form-control', placeholder => '请输入当前的密码以进行账户信息修改'
+          = f.password_field :current_password, :class => 'form-control'
         <br />
 
         button.btn.btn-primary type="submit"

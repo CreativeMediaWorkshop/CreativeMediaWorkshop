@@ -37,7 +37,7 @@ class MoSiteController < ApplicationController
   end
 
   def today
-    @mo_items = MoItem.all.created_between(1.day.ago, Time.now)
+    @mo_items = MoItem.all.created_between(1.day.ago, Time.now).reverse
   end
 
   private
