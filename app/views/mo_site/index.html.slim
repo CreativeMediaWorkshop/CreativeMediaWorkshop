@@ -4,13 +4,12 @@
   /TODO: Cache the page
   .jumbotron#daily-item
     - temp = MoItem.find($redis.get('daily_item_id'))
-    .title 
-    /a href="#{mo_item_path(temp)}"
     .page-header
       h1 
         |摸 Mo
         <br />
         small 来自创意媒体工作室的媒体平台
+    = link_to '今日照片', "#{mo_item_path(temp)}", :id => "daily-item-button"
     img.img-responsive#daily-item-image src="#{temp.file_url(24*60*60, 'big')}"
 
 .row
@@ -44,4 +43,3 @@
       .panel-heading
         h3.panel-title 更新日志
       = render 'update_table'
-      

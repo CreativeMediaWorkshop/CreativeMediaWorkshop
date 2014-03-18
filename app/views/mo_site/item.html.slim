@@ -1,15 +1,11 @@
 #info data="#{controller.action_name}"
 .row
   .col-md-9
-    h1.title = @mo_item.title
-    h2.subtitle = @mo_item.subtitle
-    .author = CmwAccount.find(@mo_item.author_id).name
-
     .row#main-content
-      img.img-responsive alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big.full')}"
-
-    /"#{@mo_item.file_url(1800, '-')}"
-
+      img.img-responsive#main-image alt="#{@mo_item.title}" src="#{@mo_item.file_url(1800, 'big.full')}"
+      h1.title = @mo_item.title
+      h2.subtitle = @mo_item.subtitle
+      .author = CmwAccount.find(@mo_item.author_id).name
   .col-md-3 
     / TODO!: make EXIF functions properly!!
     / AND BE AWARE OF MANUAL_UPLOAD & FORMAT PROBLEM
