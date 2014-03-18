@@ -1,0 +1,33 @@
+.container#devise-container
+  .row
+    .col-md-9
+      h3 修改CMW Account信息
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+
+        = devise_error_messages!
+
+        / <div><%= f.label :email %><br />
+        / <%= f.email_field :email, :autofocus => true %></div>
+
+        / <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        /   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        / <% end %>
+
+        .input-group
+          span.input-group-addon 新密码
+          = f.password_field :password, :autofocus => true, :class => 'form-control', placeholder => '如果不需要修改请留空'
+        <br />
+        .input-group
+          span.input-group-addon 新密码确认
+          = f.password_field :password_confirmation, :autofocus => true, :class => 'form-control', placeholder => '如果不需要修改请留空'
+        <br />
+
+        .input-group
+          span.input-group-addon 当前密码
+          = f.password_field :password, :autofocus => true, :class => 'form-control', placeholder => '请输入当前的密码以进行账户信息修改'
+        <br />
+
+        button.btn.btn-primary type="submit"
+          span.glyphicon.glyphicon-ok
+            |  提交
+    = render "devise/shared/links"

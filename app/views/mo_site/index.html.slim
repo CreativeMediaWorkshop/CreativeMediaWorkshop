@@ -24,6 +24,14 @@
             a.thumbnail href="#{mo_item_path(i)}"
               img src="#{i.file_url(1800, 'small')}"
       .panel-footer 点击查看大图
+    .panel.panel-primary#hot
+      .panel-heading
+        h3.panel-title 本周热门
+      .panel-body
+        - MoItem.find(:all, :order => "click_times_week desc", :limit => 3).reverse.each do |i|
+          .col-md-4
+            a.thumbnail href="#{mo_item_path(i)}"
+              img src="#{i.file_url(1800, 'mid')}"
   .col-md-3
     .panel.panel-info#random
       .panel-heading

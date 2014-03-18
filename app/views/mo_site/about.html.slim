@@ -2,31 +2,32 @@
 .row
 .row
   .col-md-9
-    h3 关于我们
-    |创意媒体工作室
+    = image_tag 'MoBeta.png', :class => 'img-responsive'
+    /h3 关于我们
+    /|创意媒体工作室
     h3 关于摸
-    |摸旨在成为一个开放的媒体平台。
+    |摸旨在成为一个开放的媒体平台。我们将在这里发布属于创意媒体工作室的各类媒体资源。
     h3 开发计划
-    |一个网站并不是学生团队能轻易建成的，遵循敏捷开发原则，我们会一步步完成摸的全部功能。在现阶段，网站每天都会有明显的改进，目前的。
-
+    |一个网站并不是学生团队能轻易建成的。目前的UI和系统功能设计离我们的目标还差得很远。遵循敏捷开发原则，我们会一步步完成摸的全部功能。
+    <br />
     |第一阶段：网站基本功能的实现。
-    |包括图片显示、图片下载、图片购买。
-    |
-
+    |包括图片显示、图片下载、图片购买，以及用户上传图片。
+    <br />
     |第二阶段：网站功能的全面完善。
-    |包括音频、视频资料的处理，基于机器学习的个性化内容推荐，以及界面的重新设计和优化。
-
+    |对音频、视频的支持，基于机器学习的个性化内容推荐，以及界面的重新设计和优化。
+    <br />
     |第三阶段：作为一个平台的正式运营。
-    |包括
-    |
 
     h3 更新日志
     = render 'update_table'
 
-    h3 加入我们
+    /h3 加入我们
 
-    
     h3 Bug Report
-    |我们接受issue和pull request。github:CreativeMediaWorkshop/CreativeMediaWorkshop
-    |亦可发送邮件至bdfzcmw [at] 126 . com
+    |我们接受issue和pull request：github:CreativeMediaWorkshop/CreativeMediaWorkshop
+    <br />
+    |亦可
+    a href="mailto:bdfzcmw@126.com" 发送邮件
+    |来联系我们。
+    span#cmw-mail-address
   .col-md-3 ==render 'sidebar'

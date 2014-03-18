@@ -8,7 +8,8 @@
           a.thumbnail href="#{mo_item_path(i)}"
             img src="#{i.file_url(1800, 'small')}"
   .col-md-2
-    .tag-text Tag: #{params[:id]}
-    .tag-count Count: #{@tag_items.count}
+  	.panel.panel-primary
+      .panel-heading
+        h3.panel-title 标签#{params[:id]}下有#{@tag_items.count}个对象
 
 = paginate @tag_items
