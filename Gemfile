@@ -70,6 +70,7 @@ gem 'rails_admin'
 gem 'predictionio'
 gem 'acts-as-taggable-on'
 gem 'exifr'
+gem 'social-share-button'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
