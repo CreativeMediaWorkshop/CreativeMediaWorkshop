@@ -29,4 +29,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_url
   end
+
+  # Allow additional params in Devise
+  before_filter :configure_devise_params, if: :devise_controller?
+  def configure_devise_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit( :email, :password, :password_confirmation, :name)
+    end
+  end
 end
