@@ -27,7 +27,7 @@
       .panel-heading
         h3.panel-title 本周热门
       .panel-body
-        -  MoItem.limit(3).order('click_times_week desc').each do |i|
+        -  MoItem.all.sort_by { |e| e.click_times_week.value }.last(3).each do |i|
           .col-md-4
             a.thumbnail href="#{mo_item_path(i)}"
               img src="#{i.file_url(1800, 'mid')}"
