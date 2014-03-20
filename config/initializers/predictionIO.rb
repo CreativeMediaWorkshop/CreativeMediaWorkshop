@@ -1,0 +1,1 @@
+$PIOclient = PredictionIO::Client.new('qXtfXQAL5p25bBwfAYGtTpZ6p59PLqmr5HCK6Sm3BLPas3IQlJbVf2J1H22sHlnh')

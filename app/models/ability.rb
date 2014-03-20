@@ -7,6 +7,11 @@ class Ability
         can :access, :rails_admin
         can :dashboard
         can :manage, :all
+      elsif user.role == 'photo_member'
+        can :access, :rails_admin
+        can :index, :mo_item
+        can :new, :mo_item
+        can :update, :mo_item
       elsif user.role == 'user'
       elsif user.role == 'verified'
       #elsif user.role == 'banned'
