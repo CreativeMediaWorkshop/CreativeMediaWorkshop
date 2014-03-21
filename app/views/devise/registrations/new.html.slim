@@ -12,15 +12,15 @@
         <br />
         .input-group
           span.input-group-addon 邮箱
-          = f.text_field :email, :autofocus => true, :class => 'form-control', :placeholder => '附中学生使用@stu邮箱可获更高权限'
+          = f.text_field :email, :class => 'form-control', :placeholder => '附中学生使用@stu邮箱可获更高权限'
         <br />
         .input-group
           span.input-group-addon 密码
-          = f.password_field :password, :autofocus => true, :class => 'form-control'
+          = f.password_field :password, :class => 'form-control'
         <br />
         .input-group
           span.input-group-addon 密码确认
-          = f.password_field :password_confirmation, :autofocus => true, :class => 'form-control'
+          = f.password_field :password_confirmation, :class => 'form-control'
         <br />
         button.btn.btn-primary type="submit"
           span.glyphicon.glyphicon-ok
