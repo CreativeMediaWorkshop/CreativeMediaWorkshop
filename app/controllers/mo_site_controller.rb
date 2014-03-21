@@ -17,7 +17,12 @@ class MoSiteController < ApplicationController
   end
 
   def item
-    @mo_item.hit
+    @mo_item.click_times.increment
+    @mo_item.click_times_week.increment
+    #if cmw_account_signed_in?
+      #$PIOclient.identify(current_cmw_account.id)
+      #$PIOclient.record_action_on_item('view', @mo_item.id)
+    #end
     #if @mo_item.type == "image"
   end
 

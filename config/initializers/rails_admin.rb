@@ -34,21 +34,23 @@ RailsAdmin.config do |config|
 
   config.model MoItem do
     edit do
-      include_all_fields
-      field :tag_list do
-        label "Tags"
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
       end
-      field :tag_list
     end
   end
 
   config.model MainArticle do
     edit do
-      include_all_fields
-      field :tag_list do
-        label "Tags"
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
       end
-      field :tag_list
+    end
+  end
+
+  config.model CmwAccount do
+    edit do
+      field :role
     end
   end
 end

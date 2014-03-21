@@ -52,15 +52,6 @@ class MoItem < ActiveRecord::Base
     end
   end
 
-  def hit
-    click_times.increment
-    click_times_week.increment
-    if current_cmw_account
-      $PIOclient.identify(current_cmw_account.id)
-      $PIOclient.record_action_on_item('view', id)
-    end
-  end
-
   def MoItem.daily_refresh
     $redis.set('daily_item_id', MoItem.all.sample.id)
   end

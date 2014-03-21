@@ -1,1 +1,1 @@
-$PIOclient = PredictionIO::Client.new('Rails.application.secrets.PIO_key')
+$PIOclient = PredictionIO::Client.new(Rails.application.secrets.PIO_key)
