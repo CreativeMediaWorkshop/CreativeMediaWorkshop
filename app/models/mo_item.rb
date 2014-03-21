@@ -15,6 +15,12 @@ class MoItem < ActiveRecord::Base
 
   scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
 
+  after_create :additional_configuration
+  def additional_configuration
+    $PIOclient.create_item(id, item_type)
+  end
+
+  #Useful methods
   def file_url(time, size)
     if via_uploader
       name = File.basename(file.path)
@@ -49,6 +55,10 @@ class MoItem < ActiveRecord::Base
   def hit
     click_times.increment
     click_times_week.increment
+    if current_cmw_account
+      $PIOclient.identify(current_cmw_account.id)
+      $PIOclient.record_action_on_item('view', id)
+    end
   end
 
   def MoItem.daily_refresh

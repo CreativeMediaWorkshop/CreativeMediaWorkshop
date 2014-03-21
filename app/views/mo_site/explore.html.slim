@@ -1,7 +1,10 @@
 #info data="#{controller.action_name}"
 .row
-  - @mo_items.each do |i|
-    .col-xs-6.col-md-3
-      a.thumbnail href="#{mo_item_path(i)}"
-        img src="#{i.file_url(1800, 'small')}"
-= paginate @mo_items
+  /.col-md-9
+    - @mo_items.each do |i|
+      .col-xs-6.col-md-3
+        a.thumbnail href="#{mo_item_path(i)}"
+          img src="#{i.file_url(1800, 'small')}"
+  /.col-md-3
+    /.recommendation
+  = paginate @mo_items

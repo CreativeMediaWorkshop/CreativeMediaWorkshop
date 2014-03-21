@@ -10,9 +10,8 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url
   end
 
-  after_filter :store_location
-
   # Devise redirect to last page
+  after_action :store_location
   def store_location
     # store last url as long as it isn't a /cmw_accounts path
     # session[:previous_url] = request.original_url unless request.original_url =~ /\/cmw_accounts/
@@ -31,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Allow additional params in Devise
-  before_filter :configure_devise_params, if: :devise_controller?
+  before_action :configure_devise_params, if: :devise_controller?
   def configure_devise_params
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit( :email, :password, :password_confirmation, :name)
